@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tip-trainer/static/css/main.97956af5.css",
-    "main.js": "/tip-trainer/static/js/main.c809a7ef.js",
+    "main.js": "/tip-trainer/static/js/main.307a9eff.js",
     "static/js/787.aafa8c40.chunk.js": "/tip-trainer/static/js/787.aafa8c40.chunk.js",
     "index.html": "/tip-trainer/index.html",
     "main.97956af5.css.map": "/tip-trainer/static/css/main.97956af5.css.map",
-    "main.c809a7ef.js.map": "/tip-trainer/static/js/main.c809a7ef.js.map",
+    "main.307a9eff.js.map": "/tip-trainer/static/js/main.307a9eff.js.map",
     "787.aafa8c40.chunk.js.map": "/tip-trainer/static/js/787.aafa8c40.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.97956af5.css",
-    "static/js/main.c809a7ef.js"
+    "static/js/main.307a9eff.js"
   ]
 }
