@@ -77,6 +77,7 @@ class App extends Component{
       <div className="App">
         <header className="App-header">
           <h1>Tip Trainer</h1>
+          <h5>Do you feel pressured to tip at fast food places? This app trains you to click 0% without pressure! See how many you can get before time runs out.</h5>
           <span>{this.state.correct} | {this.state.incorrect} | {this.state.seconds}</span>
           <br></br>
           <div>
