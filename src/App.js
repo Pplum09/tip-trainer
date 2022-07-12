@@ -21,12 +21,14 @@ class App extends Component{
   }
 
   isCorrectTip(e) {
-
+    console.log('hello?');
     if (this.state.seconds <= 0) {
       clearInterval(this.interval);
       this.setState({
         clockRunning: false,
         seconds: 15,
+        correct: 0,
+        incorrect: 0,
       });
       alert('Time\'s up!');
       return;
@@ -38,7 +40,8 @@ class App extends Component{
         clockRunning: true,
       });
     }
-    if (e === 0) {
+    console.log('state: ', e);
+    if (e === '0') {
       this.setState({
         correct: this.state.correct + 1,
       });
