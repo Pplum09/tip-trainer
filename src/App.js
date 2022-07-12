@@ -38,7 +38,7 @@ class App extends Component{
         clockRunning: true,
       });
     }
-    if (e == 0) {
+    if (e === 0) {
       this.setState({
         correct: this.state.correct + 1,
       });
