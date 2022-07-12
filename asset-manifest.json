@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tip-trainer/static/css/main.97956af5.css",
+    "main.js": "/tip-trainer/static/js/main.b8724186.js",
+    "static/js/787.aafa8c40.chunk.js": "/tip-trainer/static/js/787.aafa8c40.chunk.js",
+    "index.html": "/tip-trainer/index.html",
+    "main.97956af5.css.map": "/tip-trainer/static/css/main.97956af5.css.map",
+    "main.b8724186.js.map": "/tip-trainer/static/js/main.b8724186.js.map",
+    "787.aafa8c40.chunk.js.map": "/tip-trainer/static/js/787.aafa8c40.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97956af5.css",
+    "static/js/main.b8724186.js"
+  ]
+}
