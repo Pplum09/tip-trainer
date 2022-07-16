@@ -6,6 +6,7 @@ class App extends Component{
   constructor() {
     super();
     this.state = {
+      username: '',
       correct: 0,
       incorrect: 0,
       seconds: 15,
@@ -20,7 +21,6 @@ class App extends Component{
   }
 
   isCorrectTip(e) {
-
     if (!this.state.clockRunning) {
       this.tick();
       this.setState({
@@ -71,10 +71,38 @@ class App extends Component{
       correct: 0,
       incorrect: 0,
     });
-    alert('Time\'s up!');
+
+    if (this.state.username === '') {
+      var username = prompt('Enter your name to save score!');
+      console.log('inputed: ', username)
+      if (username != null) {
+        this.setState({
+          username: username,
+        }, () => this.sendScore());
+
+      }
+    } else {
+      this.sendScore();
+      alert('Score saved. Press ok to play again!');
+    }
     return;
   }
 
+  sendScore() {
+    console.log('username: ', this.state.username);
+    if (this.state.username === '') {
+      console.log('no username!');
+      return;
+    }
+
+    const url = 'https://discord.com/api/webhooks/997698042021036172/UgWMTPYwppsRnuMD9IAe6JTuUr6jbVMByY8BX9W24wpwEXdZ9kewJT1XOWZou94TGQSZ';
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({content: 'New Message!'}),
+    };
+    fetch(url, options);
+  }
   render () {
     return (
       <div className="App-header">
