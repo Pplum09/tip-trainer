@@ -9,7 +9,7 @@ class App extends Component{
       username: '',
       correct: 0,
       incorrect: 0,
-      seconds: 3,
+      seconds: 15,
       clockRunning: false,
       tipButtons: [
         <button value='0' key='0' onClick={e => this.isCorrectTip(e.target.value)}>0%</button>,
@@ -98,7 +98,7 @@ class App extends Component{
     fetch(url, options).then(
       () => this.setState({
         clockRunning: false,
-        seconds: 3,
+        seconds: 15,
         correct: 0,
         incorrect: 0,
       })
