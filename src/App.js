@@ -9,7 +9,7 @@ class App extends Component{
       username: '',
       correct: 0,
       incorrect: 0,
-      seconds: 15,
+      seconds: 3,
       clockRunning: false,
       tipButtons: [
         <button value='0' key='0' onClick={e => this.isCorrectTip(e.target.value)}>0%</button>,
@@ -65,12 +65,7 @@ class App extends Component{
 
   reset() {
     clearInterval(this.interval);
-    this.setState({
-      clockRunning: false,
-      seconds: 15,
-      correct: 0,
-      incorrect: 0,
-    });
+
 
     if (this.state.username === '') {
       var username = prompt('Enter your name to save score!');
@@ -82,14 +77,13 @@ class App extends Component{
 
       }
     } else {
-      this.sendScore();
       alert('Score saved. Press ok to play again!');
+      this.sendScore();
     }
     return;
   }
 
   sendScore() {
-    console.log('username: ', this.state.username);
     if (this.state.username === '') {
       console.log('no username!');
       return;
@@ -99,9 +93,16 @@ class App extends Component{
     const options = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({content: 'New Message!'}),
+      body: JSON.stringify({content: `${this.state.username}, ${this.state.correct}, ${this.state.incorrect}`}),
     };
-    fetch(url, options);
+    fetch(url, options).then(
+      () => this.setState({
+        clockRunning: false,
+        seconds: 3,
+        correct: 0,
+        incorrect: 0,
+      })
+    );
   }
   render () {
     return (
