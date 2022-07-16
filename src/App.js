@@ -15,24 +15,11 @@ class App extends Component{
         <button value='15' key='15' onClick={e => this.isCorrectTip(e.target.value)}>15%</button>,
         <button value='18' key='18' onClick={e => this.isCorrectTip(e.target.value)}>18%</button>,
         <button value='20' key='20' onClick={e => this.isCorrectTip(e.target.value)}>20%</button>,
-        <button value='x' key='x' onClick={e => this.isCorrectTip(e.target.value)}>Custom</button>,
       ],
     }
   }
 
   isCorrectTip(e) {
-    console.log('hello?');
-    if (this.state.seconds <= 0) {
-      clearInterval(this.interval);
-      this.setState({
-        clockRunning: false,
-        seconds: 15,
-        correct: 0,
-        incorrect: 0,
-      });
-      alert('Time\'s up!');
-      return;
-    }
 
     if (!this.state.clockRunning) {
       this.tick();
@@ -40,7 +27,6 @@ class App extends Component{
         clockRunning: true,
       });
     }
-    console.log('state: ', e);
     if (e === '0') {
       this.setState({
         correct: this.state.correct + 1,
@@ -69,21 +55,36 @@ class App extends Component{
       this.setState({
         seconds: this.state.seconds - 1,
       });
+
+      if (this.state.seconds <= 0) {
+        this.reset();
+      }
+
     }, 1000);
+  }
+
+  reset() {
+    clearInterval(this.interval);
+    this.setState({
+      clockRunning: false,
+      seconds: 15,
+      correct: 0,
+      incorrect: 0,
+    });
+    alert('Time\'s up!');
+    return;
   }
 
   render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Tip Trainer</h1>
-          <h5>Do you feel pressured to tip at fast food places? This app trains you to click 0% without pressure! See how many you can get before time runs out.</h5>
-          <span>{this.state.correct} | {this.state.incorrect} | {this.state.seconds}</span>
-          <br></br>
-          <div>
-            {this.state.tipButtons}
-          </div>
-        </header>
+      <div className="App-header">
+        <h2>Tip Trainer</h2>
+        <p>They aren't even serving you, just tip 0%.</p>
+        <span>{this.state.correct} | {this.state.incorrect} | {this.state.seconds}</span>
+        <br></br>
+        <div className="App-header">
+          {this.state.tipButtons}
+        </div>
       </div>
     );
   }
